@@ -186,7 +186,7 @@ def edit_job(job):
                 job[key] = ""
                 break
             try:
-                datetime.striptime(raw, "%Y-%m-%d")
+                datetime.strptime(raw, "%Y-%m-%d")
                 job[key] = raw
                 break
             except ValueError:
@@ -202,7 +202,7 @@ def edit_job(job):
         ("other_labor_costs", "Other labor-related costs", 0.0, None),
         ("other_expenses", "Other project expenses", 0.0, None),
         ("tax_rate", "Estimated tax rate (%)", 0.0, 100.0),
-        ("taxable_profit_adjustmnet", "Taxable-profit adjustment (deductions enter as positive amount)", 0.0, None),
+        ("taxable_profit_adjustment", "Taxable-profit adjustment (deductions enter as positive amount)", 0.0, None),
     ]
     for key, prompt, minimum, maximum in numeric_fields:
         current = float(job.get(key, 0.0))
